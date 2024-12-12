@@ -1,0 +1,105 @@
+package ru.itmo.wp.web.page;
+
+import javax.servlet.http.HttpSession;
+import java.util.Map;
+
+@SuppressWarnings({"unused", "RedundantSuppression"})
+public class TicTacToePage {
+    private static final int SIZE = 3;
+    private static final String EMPTY = ".";
+
+    public void action(HttpSession session, Map<String, Object> view) {
+        State state = (State) session.getAttribute("state");
+        if (state == null) {
+            state = new State();
+            session.setAttribute("state", state);
+        }
+        view.put("state", state);
+    }
+
+    public void onMove(HttpSession session, Map<String, Object> view, int row, int col) {
+        State state = (State) session.getAttribute("state");
+        if (state != null && state.canMove(row, col)) {
+            state.move(row, col);
+            view.put("state", state);
+        }
+    }
+
+    public void newGame(HttpSession session, Map<String, Object> view) {
+        State state = new State();
+        session.setAttribute("state", state);
+        view.put("state", state);
+    }
+
+    public static class State {
+        private final String[][] cells;
+        private boolean crossesMove;
+        private String phase;
+
+        public State() {
+            cells = new String[SIZE][SIZE];
+            for (int row = 0; row < SIZE; row++) {
+                for (int col = 0; col < SIZE; col++) {
+                    cells[row][col] = EMPTY;
+                }
+            }
+            crossesMove = true;
+            phase = "RUNNING";
+        }
+
+        public boolean canMove(int row, int col) {
+            return phase.equals("RUNNING") && cells[row][col].equals(EMPTY);
+        }
+
+        public void move(int row, int col) {
+            cells[row][col] = crossesMove ? "X" : "O";
+            crossesMove = !crossesMove;
+            updatePhase();
+        }
+
+        private void updatePhase() {
+            if (checkWin("X")) {
+                phase = "WON_X";
+            } else if (checkWin("O")) {
+                phase = "WON_O";
+            } else if (checkDraw()) {
+                phase = "DRAW";
+            }
+        }
+
+        private boolean checkWin(String player) {
+            // Check rows, columns and diagonals
+            for (int i = 0; i < SIZE; i++) {
+                if ((cells[i][0].equals(player) && cells[i][1].equals(player) && cells[i][2].equals(player)) ||
+                        (cells[0][i].equals(player) && cells[1][i].equals(player) && cells[2][i].equals(player))) {
+                    return true;
+                }
+            }
+            return (cells[0][0].equals(player) && cells[1][1].equals(player) && cells[2][2].equals(player)) ||
+                    (cells[0][2].equals(player) && cells[1][1].equals(player) && cells[2][0].equals(player));
+        }
+
+        private boolean checkDraw() {
+            for (int row = 0; row < SIZE; row++) {
+                for (int col = 0; col < SIZE; col++) {
+                    if (cells[row][col].equals(EMPTY)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public String[][] getCells() {
+            return cells;
+        }
+
+        public boolean isCrossesMove() {
+            return crossesMove;
+        }
+
+        public String getPhase() {
+            return phase;
+        }
+    }
+}

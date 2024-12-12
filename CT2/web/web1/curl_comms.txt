@@ -1,0 +1,14 @@
+curl "http://1d3p.wp.codeforces.com/new" ^
+  -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" ^
+  -H "Accept-Language: ru,en;q=0.9" ^
+  -H "Cache-Control: no-cache" ^
+  -H "Connection: keep-alive" ^
+  -H "Content-Type: application/x-www-form-urlencoded" ^
+  -H "Cookie: _gid=GA1.2.1043933383.1726922753; evercookie_png=b683c1hiqctbj3gxvm; evercookie_etag=b683c1hiqctbj3gxvm; evercookie_cache=b683c1hiqctbj3gxvm; 70a7c28f3de=b683c1hiqctbj3gxvm; _ga=GA1.1.1543742886.1707829220; _ga_K230KVN22K=GS1.1.1726922752.147.1.1726924174.0.0.0; JSESSIONID=E4E7492A89EAE2EA45CE7B3510F61818" ^
+  -H "Origin: http://1d3p.wp.codeforces.com" ^
+  -H "Pragma: no-cache" ^
+  -H "Referer: http://1d3p.wp.codeforces.com/" ^
+  -H "Upgrade-Insecure-Requests: 1" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 YaBrowser/24.7.0.0 Safari/537.36" ^
+  --data-raw "_af=34be50b38beccce4&proof={x*x}&amount={x}&submit=Submit" ^
+  --insecure

@@ -1,0 +1,6 @@
+[#ftl]
+[#-- @implicitly included --]
+[#-- @ftlvariable name="users" type="ru.itmo.web.hw4.model.User[]" --]
+[#-- @ftlvariable name="user" type="ru.itmo.web.hw4.model.User" --]
+[#-- @ftlvariable name="current_page" type="ru.itmo.web.hw4.util.DataUtil" --]
+[#-- @ftlvariable name="posts" type="ru.itmo.web.hw4.model.Post[]" --]
