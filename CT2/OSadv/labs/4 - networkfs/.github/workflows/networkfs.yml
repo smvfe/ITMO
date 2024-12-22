@@ -1,0 +1,144 @@
+name: "networkfs"
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+jobs:
+  basic:
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 1
+    name: "Basic checks"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Check that branch has name 'networkfs'"
+        run: |
+          test "${GITHUB_HEAD_REF##*/}" = "networkfs"
+      - name: "Lint source code"
+        run: .github/scripts/lint.sh
+      - name: "Check hours.txt"
+        run: |
+          hours=$(cat hours.txt | tr -d '[:space:]')
+          if [[ "$hours" == +([[:digit:]]) ]]; then
+            echo "Hours spent: $hours"
+          else
+            echo "::error::Please fill in number of hours spent into hours.txt file."
+            echo "::error::This file should contain exactly one number."
+            exit 1
+          fi
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: clang-format.log
+          path: clang-format.log
+        if: ${{ failure() }}
+  build:
+    needs: basic
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 10
+    name: "Build module"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Build"
+        run: .github/scripts/build.sh
+      - name: "Create disk image"
+        run: .github/scripts/prepare_disk.sh
+      - name: "Save artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: networkfs
+          path: networkfs.img
+  tests:
+    needs: build
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 20
+    name: "Required tests"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Fetch module"
+        uses: actions/download-artifact@v4
+        with:
+          name: networkfs
+      - name: "Launch tests"
+        run: ./.github/scripts/run_vm.sh networkfs.img --gtest_filter=BaseTest.*
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu.log
+          path: build/qemu.log
+        if: ${{ failure() }}
+  bonus-encoding:
+    needs: [build, tests]
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 20
+    continue-on-error: true
+    name: "Bonus: encoding"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Fetch module"
+        uses: actions/download-artifact@v4
+        with:
+          name: networkfs
+      - name: "Launch tests"
+        run: ./.github/scripts/run_vm.sh networkfs.img --gtest_filter=EncodingTest.*
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu-encoding.log
+          path: build/qemu.log
+        if: ${{ failure() }}
+  bonus-file:
+    needs: [build, tests]
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 20
+    continue-on-error: true
+    name: "Bonus: file"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Fetch module"
+        uses: actions/download-artifact@v4
+        with:
+          name: networkfs
+      - name: "Launch tests"
+        run: ./.github/scripts/run_vm.sh networkfs.img --gtest_filter=FileTest.*
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu-file.log
+          path: build/qemu.log
+        if: ${{ failure() }}
+  bonus-link:
+    needs: [build, tests]
+    runs-on: [self-hosted, os-linux]
+    timeout-minutes: 20
+    continue-on-error: true
+    name: "Bonus: link"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Fetch module"
+        uses: actions/download-artifact@v4
+        with:
+          name: networkfs
+      - name: "Launch tests"
+        run: ./.github/scripts/run_vm.sh networkfs.img --gtest_filter=LinkTest.*
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu-link.log
+          path: build/qemu.log
+        if: ${{ failure() }}
+  cleanup:
+    needs: [build, tests, bonus-encoding, bonus-file, bonus-link]
+    runs-on: [self-hosted, os-linux]
+    if: always()
+    name: "Clean artifacts"
+    steps:
+      - uses: geekyeggo/delete-artifact@v2
+        with:
+          name: networkfs

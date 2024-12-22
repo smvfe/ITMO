@@ -1,0 +1,90 @@
+name: "alloc"
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+jobs:
+  basic:
+    runs-on: [self-hosted, os]
+    timeout-minutes: 1
+    name: "Basic checks"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Check that branch has name 'alloc'"
+        run: |
+          test "${GITHUB_HEAD_REF##*/}" = "alloc"
+      - name: "Lint source code"
+        run: |
+          clang-format --dry-run -Werror */*.c */*.h 2>clang-format.log || status=$?
+          if [[ -n $status ]]; then
+            cat clang-format.log |
+              grep 'error:' |
+              perl -pe 's/^((.*?):(.*?):(.*?):.*)$/::error file=\2,line=\3,col=\4::\1/g'
+            exit $status
+          fi
+      - name: "Check hours.txt"
+        run: |
+          hours=$(cat hours.txt | tr -d '[:space:]')
+          if [[ "$hours" == +([[:digit:]]) ]]; then
+            echo "Hours spent: $hours"
+          else
+            echo "::error::Please fill in number of hours spent into hours.txt file."
+            echo "::error::This file should contain exactly one number."
+            exit 1
+          fi
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v3
+        with:
+          name: clang-format.log
+          path: clang-format.log
+        if: ${{ failure() }}
+  tests:
+    needs: basic
+    runs-on: [self-hosted, os]
+    timeout-minutes: 6
+    name: "Required tests"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Run tests"
+        run: ./grade
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v3
+        with:
+          name: xv6.out
+          path: xv6.out.*
+        if: ${{ failure() }}
+  slow-tests:
+    needs: tests
+    runs-on: [self-hosted, os]
+    timeout-minutes: 15
+    name: "Required tests (slow)"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Run tests"
+        run: ./grade-slow
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v3
+        with:
+          name: xv6.out
+          path: xv6.out.*
+        if: ${{ failure() }}
+  proctest:
+    needs: tests
+    runs-on: [self-hosted, os]
+    timeout-minutes: 20
+    name: "Bonus: proc"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Run tests"
+        run: ./grade-proc
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v3
+        with:
+          name: xv6.out
+          path: xv6.out.*
+        if: ${{ failure() }}
