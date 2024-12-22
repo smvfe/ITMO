@@ -1,0 +1,13 @@
+import React from 'react';
+
+const Footer = ({ usersArr = [], postsArr = [] }) => {
+    return (
+        <footer>
+            <a href="#">Codehorses</a> 2099 by Mike Mirzayanov
+            <div>Users: {usersArr.length}</div>
+            <div>Posts: {postsArr.length}</div>
+        </footer>
+    );
+};
+
+export default Footer;
