@@ -1,0 +1,47 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 1 -> go_r y >
+s 0 -> go_r x >
+s x -> recr x ^
+s y -> recr y ^
+ch_l 1 -> go_l y <
+ch_l 0 -> go_l x <
+ch_l y -> rj y >
+ch_l x -> rj x <
+
+go_r 1 -> go_r 1 >
+go_r 0 -> go_r 0 >
+go_r x -> ch_l x <
+go_r y -> ch_l y <
+go_r _ -> ch_l _ <
+go_l 1 -> go_l 1 <
+go_l 0 -> go_l 0 <
+go_l x -> s x >
+go_l y -> s y >
+go_l _ -> s _ >
+
+fnd_x 0 -> fnd_x 0 <
+fnd_x 1 -> fnd_x 1 <
+fnd_x ~ -> fnd_x ~ <
+fnd_x x -> conf ~ >
+fnd_x y -> rj y >
+fnd_y 0 -> fnd_y 0 <
+fnd_y 1 -> fnd_y 1 <
+fnd_y ~ -> fnd_y ~ <
+fnd_y y -> conf ~ >
+fnd_y x -> rj x <
+
+recr x -> recr 0 >
+recr y -> recr 1 >
+recr _ -> left_conf _ <
+
+left_conf ~ -> ac ~ <
+left_conf 0 -> fnd_x _ <
+left_conf 1 -> fnd_y _ <
+conf ~ -> conf ~ >
+conf 0 -> conf 0 >
+conf 1 -> conf 1 >
+conf _ -> left_conf _ <

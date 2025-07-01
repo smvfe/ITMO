@@ -1,0 +1,44 @@
+1
+
+S 0 -> next 0 >
+S 1 -> next 1 > 
+
+next 0 -> next 0 >
+next 1 -> next 1 >
+next o -> dis o <
+next a -> con a <
+next _ -> AC _ <
+
+con_0 _ -> con_0 _ >
+con_0 a -> next 0 >
+con_1 _ -> con_1 _ >
+con_1 a -> next 1 >
+
+dis_0 _ -> dis_0 _ >
+dis_0 o -> next 0 >
+dis_1 _ -> dis_1 _ >
+dis_1 o -> next 1 >
+
+dis 0 -> find_dis_0 _ <
+dis 1 -> find_dis_1 _ <
+dis _ -> dis _ <
+
+con _ -> con _ <
+con 0 -> find_con_0 _ <
+con 1 -> find_con_1 _ <
+
+find_dis_0 0 -> dis_0 _ > 
+find_dis_0 1 -> dis_1 _ >
+find_dis_0 _ -> find_dis_0 _ <
+
+find_dis_1 0 -> dis_1 _ > 
+find_dis_1 1 -> dis_1 _ >
+find_dis_1 _ -> find_dis_1 _ <
+
+find_con_0 0 -> con_0 _ > 
+find_con_0 1 -> con_0 _ >
+find_con_0 _ -> find_con_0 _ <
+
+find_con_1 0 -> con_0 _ > 
+find_con_1 1 -> con_1 _ >
+find_con_1 _ -> find_con_1 _ <

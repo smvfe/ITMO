@@ -1,0 +1,89 @@
+"C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\coding\cpp_itmo\s1-trig-smvfe -B C:\coding\cpp_itmo\s1-trig-smvfe\cmake-build-debug-mingw
+-- CMake-Conan: first find_package() found. Installing dependencies with Conan
+-- CMake-Conan: Checking if a default profile exists
+C:\Users\Admin\.conan2\profiles\default
+-- CMake-Conan: cmake_system_name=Windows
+-- CMake-Conan: cmake_system_processor=x86_64
+-- CMake-Conan: CMake compiler=GNU
+-- CMake-Conan: CMake compiler version=13.1.0
+-- CMake-Conan: [settings] compiler=gcc
+-- CMake-Conan: [settings] compiler.version=13
+-- CMake-Conan: Creating profile C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/conan_host_profile
+-- CMake-Conan: Profile: 
+[settings]
+arch=x86_64
+os=Windows
+compiler=gcc
+compiler.version=13
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+build_type=Debug
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={"c":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/gcc.exe","cpp":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/g++.exe"}
+
+-- CMake-Conan: Installing single configuration Debug
+-- CMake-Conan: conan install C:/coding/cpp_itmo/s1-trig-smvfe -of=C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/conan --profile:host=default;--profile:host=C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/conan_host_profile;--profile:build=default;--build=missing;-g;CMakeDeps
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=13
+os=Windows
+[conf]
+tools.build:compiler_executables={'c': 'C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/gcc.exe', 'cpp': 'C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/g++.exe'}
+tools.cmake.cmaketoolchain:generator=Ninja
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=msvc
+compiler.cppstd=14
+compiler.runtime=dynamic
+compiler.runtime_type=Release
+compiler.version=194
+os=Windows
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.txt: C:/coding/cpp_itmo/s1-trig-smvfe\conanfile.txt
+Test requirements
+    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c - Cache
+
+======== Computing necessary packages ========
+Test requirements
+    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c:ca7f879af999c57bcd4d6524d7a4eef355552169#cfc2b69d76af4f4ee6050044e8f97331 - Cache
+
+======== Installing packages ========
+gtest/1.14.0: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: gtest/1.14.0
+
+======== Finalizing install (deploy, generators) ========
+conanfile.txt: Writing generators to C:\coding\cpp_itmo\s1-trig-smvfe\cmake-build-debug-mingw\conan\build\Debug\generators
+conanfile.txt: Generator 'CMakeDeps' calling 'generate()'
+conanfile.txt: CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(GTest)
+    target_link_libraries(... gtest::gtest)
+conanfile.txt: Generating aggregated env files
+conanfile.txt: Generated aggregated env files: ['conanbuild.bat', 'conanrun.bat']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/conan/build/Debug/generators
+-- CMake-Conan: CONANFILE=C:/coding/cpp_itmo/s1-trig-smvfe/conanfile.txt
+-- Conan: Component target declared 'GTest::gtest'
+-- Conan: Component target declared 'GTest::gtest_main'
+-- Conan: Component target declared 'GTest::gmock'
+-- Conan: Component target declared 'GTest::gmock_main'
+-- Conan: Target declared 'gtest::gtest'
+-- COMMON_TESTS enabled
+-- TRIG_VARIANT enabled
+-- Configuring done (3.7s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw

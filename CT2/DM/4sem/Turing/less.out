@@ -1,0 +1,71 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> g_end x >
+s 1 -> g_end y >
+s x -> s x >
+s y -> s y >
+s < -> st_cmp < >
+
+st_cmp 1 -> ac 1 ^
+st_cmp y -> fnd_1_l 1 <
+st_cmp x -> fnd_0_l 0 <
+
+fnd_1_l < -> fnd_1_l < <
+fnd_1_l 1 -> fnd_1_l 1 <
+fnd_1_l 0 -> fnd_1_l 0 <
+fnd_1_l x -> fnd_1_l x <
+fnd_1_l y -> fnd_1_l y <
+fnd_1_l _ -> src_y _ >
+
+fnd_0_l < -> fnd_0_l < <
+fnd_0_l 1 -> fnd_0_l 1 <
+fnd_0_l 0 -> fnd_0_l 0 <
+fnd_0_l x -> fnd_0_l x <
+fnd_0_l y -> fnd_0_l y <
+fnd_0_l _ -> src_x _ >
+
+src_y x -> ac x >
+src_y 0 -> src_y 0 >
+src_y 1 -> src_y 1 >
+src_y y -> next_pos 1 >
+
+src_x y -> rj y >
+src_x 0 -> src_x 0 >
+src_x 1 -> src_x 1 >
+src_x x -> next_pos 0 >
+
+next_pos 0 -> next_pos 0 >
+next_pos 1 -> next_pos 1 >
+next_pos x -> next_pos x >
+next_pos y -> next_pos y >
+next_pos < -> next_in_r < >
+
+next_in_r 0 -> next_in_r 0 >
+next_in_r 1 -> next_in_r 1 >
+next_in_r y -> fnd_1_l 1 <
+next_in_r x -> fnd_0_l 0 <
+next_in_r _ -> rj _ ^
+
+g_end 0 -> g_end 0 >
+g_end 1 -> g_end 1 >
+g_end x -> g_end x >
+g_end y -> g_end y >
+g_end < -> g_end < >
+g_end _ -> l_rep _ <
+
+l_rep 0 -> g_frw x <
+l_rep 1 -> g_frw y <
+l_rep x -> l_rep x <
+l_rep y -> l_rep y <
+l_rep < -> rj < ^
+
+g_frw 0 -> g_frw 0 <
+g_frw 1 -> g_frw 1 <
+g_frw x -> g_frw x <
+g_frw y -> g_frw y <
+g_frw < -> g_frw < <
+g_frw _ -> s _ >
+

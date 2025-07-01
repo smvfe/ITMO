@@ -1,0 +1,9 @@
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/CMakeFiles/main.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/CMakeFiles/Percolation.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/CMakeFiles/runUnitTests.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/CMakeFiles/rebuild_cache.dir

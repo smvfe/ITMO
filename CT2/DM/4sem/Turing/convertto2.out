@@ -1,0 +1,66 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> s 0 >
+s 1 -> s 1 >
+s 2 -> s 2 >
+s _ -> st_back _ <
+
+mod_s 0 -> mod_s 0 >
+mod_s 1 -> mod_s 1 >
+mod_s 2 -> mod_s 2 >
+mod_s ~ -> go_dec_3 ~ >
+
+st_back 0 -> st_back 0 <
+st_back 1 -> st_back 1 <
+st_back 2 -> st_back 2 <
+st_back _ -> init ~ <
+
+init _ -> st_alg 0 >
+
+st_alg ~ -> go_dec_3 ~ >
+
+go_dec_3 0 -> go_dec_3 0 >
+go_dec_3 1 -> go_dec_3 1 >
+go_dec_3 2 -> go_dec_3 2 >
+go_dec_3 _ -> dec_3 _ <
+
+dec_3 2 -> st_add 1 <
+dec_3 1 -> st_add 0 <
+dec_3 0 -> shift_3 2 <
+
+shift_3 2 -> st_add 1 < 
+shift_3 1 -> st_add 0 <
+shift_3 0 -> shift_3 2 <
+shift_3 ~ -> clr ~ >
+
+st_add 0 -> st_add 0 <
+st_add 1 -> st_add 1 <
+st_add 2 -> st_add 2 <
+st_add ~ -> try_inc ~ <
+
+try_inc 0 -> mod_s 1 >
+try_inc 1 -> shift_inc 0 <
+
+shift_inc 1 -> shift_inc 0 <
+shift_inc 0 -> mod_s 1 >
+shift_inc _ -> mod_s 1 >
+shift_dec 0 -> shift_dec 1 <
+shift_dec 1 -> st_add 0 <
+shift_dec ~ -> clr ~ >
+
+clr 0 -> clr 0 >
+clr 1 -> clr 1 >
+clr 2 -> clr 2 >
+clr _ -> blank _ <
+
+ret 0 -> ret 0 <
+ret 1 -> ret 1 <
+ret _ -> ac _ >
+
+blank 0 -> blank _ <
+blank 1 -> blank _ <
+blank 2 -> blank _ <
+blank ~ -> ret _ <

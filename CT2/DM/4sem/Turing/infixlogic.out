@@ -1,0 +1,35 @@
+2
+
+S ( _ -> S _ > ( >
+S ) _ -> line2 _ ^ _ <
+S 0 _ -> S _ > 0 >
+S 1 _ -> S _ > 1 >
+S o _ -> S _ > o >
+S a _ -> con _ > _ <
+
+con 0 0 -> S _ > 0 >
+con 0 1 -> S _ > 0 >
+con 1 0 -> S _ > 0 >
+con 1 1 -> S _ > 1 >
+
+line2 _ 0 -> line2 _ ^ _ <
+line2 _ o -> line2 _ ^ _ <
+line2 _ ( -> S _ > 0 >
+line2 _ 1 -> get_1 _ ^ _ <
+line2 _ a -> con 0 ^ _ <
+
+get_1 _ 0 -> get_1 _ ^ _ <
+get_1 _ o -> get_1 _ ^ _ <
+get_1 _ ( -> S _ > 1 >
+get_1 _ 1 -> get_1 _ ^ _ <
+get_1 _ a -> con 1 ^ _ <
+
+S _ _ -> clr _ ^ _ <
+clr _ 0 -> clr _ ^ _ <
+clr _ 1 -> AC 1 ^ _ ^
+clr _ o -> clr _ ^ _ <
+clr _ _ -> AC 0 ^ _ ^
+
+con ( 0 -> hd ( ^ 0 >
+con ( 1 -> hd ( ^ 1 >
+hd ( _ -> S _ > a >

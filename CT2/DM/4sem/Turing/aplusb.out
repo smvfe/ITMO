@@ -1,0 +1,38 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> s 0 >
+s 1 -> s 1 >
+s + -> s + >
+s _ -> dec _ <
+
+dec 1 -> st_add 0 <
+dec 0 -> shift_dec 1 <
+
+st_add 0 -> st_add 0 <
+st_add 1 -> st_add 1 <
+st_add + -> try_inc + <
+
+try_inc 0 -> s 1 >
+try_inc 1 -> shift_inc 0 <
+
+shift_inc 1 -> shift_inc 0 <
+shift_inc 0 -> s 1 >
+shift_inc _ -> s 1 >
+shift_dec 0 -> shift_dec 1 <
+shift_dec 1 -> st_add 0 <
+shift_dec + -> clr + >
+
+clr 0 -> clr 0 >
+clr 1 -> clr 1 >
+clr + -> ret _ <
+clr _ -> blank _ <
+
+ret 0 -> ret 0 <
+ret 1 -> ret 1 <
+ret _ -> ac _ >
+blank 0 -> blank _ <
+blank 1 -> blank _ <
+blank + -> ret _ <

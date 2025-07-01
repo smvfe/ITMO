@@ -1,0 +1,9 @@
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/CMakeFiles/main.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/Tree/CMakeFiles/Treap.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/Tree/CMakeFiles/runUnitTests.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/Tree/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/s2-treap-smvfe/cmake-build-debug-mingw/libraries/Tree/CMakeFiles/rebuild_cache.dir

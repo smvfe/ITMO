@@ -1,0 +1,23 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> s x >
+s 1 -> s y >
+s _ -> se _ <
+
+se 0 -> se 0 <
+se 1 -> se 1 <
+se y -> rety 1 >
+se x -> retx 0 >
+
+retx 0 -> retx 0 >
+retx 1 -> retx 1 >
+retx _ -> se 0 <
+
+rety 0 -> rety 0 >
+rety 1 -> rety 1 >
+rety _ -> se 1 <
+
+se _ -> ac _ >

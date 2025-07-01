@@ -1,0 +1,7 @@
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/CMakeFiles/calc_lib.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/CMakeFiles/calc.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/tests/CMakeFiles/runUnitTests.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/tests/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/s1-trig-smvfe/cmake-build-debug-mingw/tests/CMakeFiles/rebuild_cache.dir

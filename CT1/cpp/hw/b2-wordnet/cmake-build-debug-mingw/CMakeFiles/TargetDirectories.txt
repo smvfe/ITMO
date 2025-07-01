@@ -1,0 +1,10 @@
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/CMakeFiles/main.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/CMakeFiles/rebuild_cache.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/wordnet/CMakeFiles/wordnet.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/wordnet/CMakeFiles/runUnitTests.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/wordnet/CMakeFiles/etc.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/wordnet/CMakeFiles/edit_cache.dir
+C:/coding/cpp_itmo/b2-wordnet-smvfe/cmake-build-debug-mingw/libraries/wordnet/CMakeFiles/rebuild_cache.dir

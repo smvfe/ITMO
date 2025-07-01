@@ -1,0 +1,43 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> s x >
+s 1 -> s y >
+s _ -> se c <
+
+se 0 -> se 0 <
+se 1 -> se 1 <
+se y -> rety 1 >
+se x -> retx 0 >
+se c -> se c <
+
+retx 0 -> retx 0 >
+retx 1 -> retx 1 >
+retx _ -> se 0 <
+retx c -> retx_c c > 
+
+retx_c 0 -> retx_c 0 >
+retx_c 1 -> retx_c 1 >
+retx_c c -> retx_c c >
+retx_c _ -> se 0 <     
+
+rety 0 -> rety 0 >
+rety 1 -> rety 1 >
+rety _ -> se 1 <
+rety c -> rety_c c >  
+
+rety_c 0 -> rety_c 0 >
+rety_c 1 -> rety_c 1 >
+rety_c c -> rety_c c >
+rety_c _ -> se 1 <
+
+se _ -> clr _ >
+
+clr x -> clr _ >
+clr y -> clr _ >
+clr 0 -> clr _ >
+clr 1 -> clr _ >
+clr _ -> clr _ >
+clr c -> ac _ >

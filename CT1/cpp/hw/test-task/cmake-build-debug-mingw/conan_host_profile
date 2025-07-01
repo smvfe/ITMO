@@ -1,0 +1,11 @@
+[settings]
+arch=x86_64
+os=Windows
+compiler=gcc
+compiler.version=13
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+build_type=Debug
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={"cpp":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/g++.exe","rc":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/windres.exe"}

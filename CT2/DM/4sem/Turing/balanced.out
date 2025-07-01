@@ -1,0 +1,24 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s _ -> ac _ >
+s ) -> rj ) >
+s ( -> fnd_cls ( > 
+fnd_cls ( -> fnd_cls ( >
+fnd_cls ) -> fnd_op ) ^
+fnd_cls ~ -> fnd_cls ~ >
+fnd_cls _ -> rj _ < 
+src_cls ( -> fnd_cls ( >
+src_cls ) -> src_cls ) >
+src_cls ~ -> src_cls ~ >
+src_cls _ -> strt _ < 
+fnd_op ) -> fnd_op ~ <
+fnd_op ( -> src_cls ~ >
+fnd_op ~ -> fnd_op ~ <
+strt ( -> strt ( <
+strt ) -> strt ) <
+strt ~ -> strt ~ <
+strt _ -> s _ >
+s ~ -> s ~ > 

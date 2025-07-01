@@ -1,0 +1,144 @@
+"C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\coding\cpp_itmo\s3-lfru-buddy-smvfe -B C:\coding\cpp_itmo\s3-lfru-buddy-smvfe\cmake-build-debug-mingw
+-- CMake-Conan: first find_package() found. Installing dependencies with Conan
+-- CMake-Conan: Checking if a default profile exists
+C:\Users\Admin\.conan2\profiles\default
+-- CMake-Conan: cmake_system_name=Windows
+-- CMake-Conan: cmake_system_processor=x86_64
+-- CMake-Conan: CMake compiler=GNU
+-- CMake-Conan: CMake compiler version=13.1.0
+-- CMake-Conan: [settings] compiler=gcc
+-- CMake-Conan: [settings] compiler.version=13
+-- CMake-Conan: Creating profile C:/coding/cpp_itmo/s3-lfru-buddy-smvfe/cmake-build-debug-mingw/conan_host_profile
+-- CMake-Conan: Profile: 
+[settings]
+arch=x86_64
+os=Windows
+compiler=gcc
+compiler.version=13
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+build_type=Debug
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={"c":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/gcc.exe","cpp":"C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/g++.exe"}
+
+-- CMake-Conan: Installing single configuration Debug
+-- CMake-Conan: conan install C:/coding/cpp_itmo/s3-lfru-buddy-smvfe -of=C:/coding/cpp_itmo/s3-lfru-buddy-smvfe/cmake-build-debug-mingw/conan --profile:host=default;--profile:host=C:/coding/cpp_itmo/s3-lfru-buddy-smvfe/cmake-build-debug-mingw/conan_host_profile;--profile:build=default;--build=missing;-g;CMakeDeps
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=13
+os=Windows
+[conf]
+tools.build:compiler_executables={'c': 'C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/gcc.exe', 'cpp': 'C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/bin/g++.exe'}
+tools.cmake.cmaketoolchain:generator=Ninja
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=msvc
+compiler.cppstd=14
+compiler.runtime=dynamic
+compiler.runtime_type=Release
+compiler.version=194
+os=Windows
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.txt: C:/coding/cpp_itmo/s3-lfru-buddy-smvfe\conanfile.txt
+Requirements
+    jemalloc/5.3.0#e951da9cf599e956cebc117880d2d9f8 - Cache
+Test requirements
+    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c - Cache
+Build requirements
+    autoconf/2.71#f9307992909d7fb3df459340f1932809 - Cache
+    automake/1.16.5#058bda3e21c36c9aa8425daf3c1faf50 - Cache
+    m4/1.4.19#b38ced39a01e31fef5435bc634461fd2 - Cache
+    msys2/cci.latest#4927aa5502eb174e95df524f2be2685e - Cache
+
+======== Computing necessary packages ========
+Connecting to remote 'conancenter' anonymously
+jemalloc/5.3.0: Main binary package '4c924d7add14c9d7a4901f740b3480a3dbdfab05' missing
+jemalloc/5.3.0: Checking 11 compatible configurations
+jemalloc/5.3.0: Compatible configurations not found in cache, checking servers
+jemalloc/5.3.0: '560cc5aafd5403759d0ea3c2c53862e2124e7633': compiler.cppstd=98
+jemalloc/5.3.0: '329c444e078fac264e6b389f46557fa0e0ea8430': compiler.cppstd=gnu98
+jemalloc/5.3.0: '044c37446f37e0243ee136eb135c90d66ddbdc51': compiler.cppstd=11
+jemalloc/5.3.0: '6c095df818970b01980ab03353ac8eceb2577180': compiler.cppstd=gnu11
+jemalloc/5.3.0: '9254d88425b6e7b296b1fb9b62b3649b1aab6581': compiler.cppstd=14
+jemalloc/5.3.0: 'ef9035d3c8bf05a0265042661814687ffc795a34': compiler.cppstd=gnu14
+jemalloc/5.3.0: 'eb47268eb7c52a3ebfb82bdc021c7aa088ed455e': compiler.cppstd=17
+jemalloc/5.3.0: '2257c8a1703f9c445fc0a32a2d1163a6743ad229': compiler.cppstd=gnu17
+jemalloc/5.3.0: '03fdc89bec4221df9ca4a958b814e9164553e688': compiler.cppstd=gnu20
+jemalloc/5.3.0: '86b00f4f8b91b5809431a65966bf1f721e6bef60': compiler.cppstd=23
+jemalloc/5.3.0: 'b1ae8c7cf916d4c23ccbd005c002080c5d863318': compiler.cppstd=gnu23
+Requirements
+    jemalloc/5.3.0#e951da9cf599e956cebc117880d2d9f8:4c924d7add14c9d7a4901f740b3480a3dbdfab05 - Build
+Test requirements
+    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c:ca7f879af999c57bcd4d6524d7a4eef355552169#cfc2b69d76af4f4ee6050044e8f97331 - Cache
+Build requirements
+    autoconf/2.71#f9307992909d7fb3df459340f1932809:da39a3ee5e6b4b0d3255bfef95601890afd80709#5b77f70c17ad1741f5845d4e468a347e - Cache
+    automake/1.16.5#058bda3e21c36c9aa8425daf3c1faf50:ebec3dc6d7f6b907b3ada0c3d3cdc83613a2b715#07094da42a0b39fd4b34760c5f1f3e7d - Cache
+    m4/1.4.19#b38ced39a01e31fef5435bc634461fd2:723257509aee8a72faf021920c2874abc738e029#f9a0d644c9e90c7024f844416dbe7384 - Cache
+    msys2/cci.latest#4927aa5502eb174e95df524f2be2685e:956a88975bda9dfcc485e2861d71e74bd7e2b9a5#06ca1e71ba3ed86c0b2e116f4a63da61 - Cache
+
+======== Installing packages ========
+gtest/1.14.0: Already installed! (1 of 6)
+msys2/cci.latest: Already installed! (2 of 6)
+m4/1.4.19: Already installed! (3 of 6)
+autoconf/2.71: Already installed! (4 of 6)
+automake/1.16.5: Already installed! (5 of 6)
+
+-------- Installing package jemalloc/5.3.0 (6 of 6) --------
+jemalloc/5.3.0: Building from source
+jemalloc/5.3.0: Package jemalloc/5.3.0:4c924d7add14c9d7a4901f740b3480a3dbdfab05
+jemalloc/5.3.0: Copying sources to build folder
+jemalloc/5.3.0: Building your package in C:\Users\Admin\.conan2\p\b\jemal34f4c2080634b\b
+jemalloc/5.3.0: Calling generate()
+jemalloc/5.3.0: Generators folder: C:\Users\Admin\.conan2\p\b\jemal34f4c2080634b\b\build-debug\conan
+jemalloc/5.3.0: Generating aggregated env files
+jemalloc/5.3.0: Generated aggregated env files: ['conanbuild.sh', 'conanrun.bat']
+jemalloc/5.3.0: Calling build()
+jemalloc/5.3.0: Apply patch (backport): Patch configure.ac to add the missing description in AC_DEFINE.
+jemalloc/5.3.0: Apply patch (backport): Add the missing compiler flags for MSVC on Windows.
+jemalloc/5.3.0: RUN: "/c/users/admin/.conan2/p/b/jemal34f4c2080634b/b/src/configure" --disable-shared --enable-static --prefix=/ --bindir=${prefix}/bin --sbindir=${prefix}/bin --libdir=${prefix}/lib --includedir=${prefix}/include --oldincludedir=${prefix}/include --with-jemalloc-prefix= --enable-debug --enable-cxx --enable-fill --enable-xmalloc --disable-readlinkat --enable-syscall --disable-lazy-lock --disable-log --enable-initial-exec-tls --enable-libdl --disable-prof 
+mkdir: cannot create directory '/dev/shm': Read-only file system
+
+Creating /dev/shm directory failed.
+POSIX semaphores and POSIX shared memory will not work
+
+mkdir: cannot create directory '/dev/mqueue': Read-only file system
+
+Creating /dev/mqueue directory failed.
+POSIX message queues will not work
+
+configure: loading site script /etc/config.site
+checking for xsltproc... /c/users/admin/.conan2/p/msys26322397eb23dd/p/bin/msys64/usr/bin/xsltproc
+checking for gcc... /c/program files/jetbrains/clion 2024.3.3/bin/mingw/bin/gcc.exe
+checking whether the C compiler works... no
+configure: error: in `/c/Users/Admin/.conan2/p/b/jemal34f4c2080634b/b/build-debug':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
+
+jemalloc/5.3.0: ERROR: 
+Package '4c924d7add14c9d7a4901f740b3480a3dbdfab05' build failed
+jemalloc/5.3.0: WARN: Build folder C:\Users\Admin\.conan2\p\b\jemal34f4c2080634b\b\build-debug
+ERROR: jemalloc/5.3.0: Error in build() method, line 163
+	autotools.configure()
+	ConanException: Error 77 while executing
+CMake Error at conan_provider.cmake:436 (message):
+  Conan install failed='1'
+Call Stack (most recent call first):
+  conan_provider.cmake:543 (conan_install)
+  libraries/acp/CMakeLists.txt:14 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

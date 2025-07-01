@@ -1,0 +1,91 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> add_eq 0 <
+s 1 -> add_eq 1 <
+
+add_eq _ -> place_zero = <
+place_zero _ -> go_end 0 >
+
+go_end 0 -> go_end 0 >
+go_end 1 -> go_end 1 >
+go_end = -> go_end = >
+go_end * -> go_end * >
+go_end _ -> dec_l _ <
+
+dec_l 1 -> mul_to_star 0 <
+dec_l 0 -> dec_l 1 <
+dec_l * -> go_and_for_print * >
+
+go_and_for_print 0 -> go_and_for_print 0 >
+go_and_for_print 1 -> go_and_for_print 1 >
+go_and_for_print _ -> print_ans _ <
+
+print_ans 0 -> print_ans _ <
+print_ans 1 -> print_ans _ <
+print_ans * -> print_ans _ <
+print_ans = -> show_ans _ <
+
+
+show_ans 0 -> show_ans 0 <
+show_ans 1 -> show_ans 1 <
+show_ans _ -> ac _ >
+
+mul_to_star 0 -> mul_to_star 0 <
+mul_to_star 1 -> mul_to_star 1 <
+mul_to_star * -> st_mul * <
+
+st_mul 0 -> pass_to_eq0 x <
+st_mul 1 -> pass_to_eq1 y <
+st_mul = -> next_iter = <
+
+pass_to_eq0 0 -> pass_to_eq0 0 <
+pass_to_eq0 1 -> pass_to_eq0 1 <
+pass_to_eq0 = -> go_add0 = <
+
+pass_to_eq1 0 -> pass_to_eq1 0 <
+pass_to_eq1 1 -> pass_to_eq1 1 <
+pass_to_eq1 = -> go_add1 = <
+
+go_add0 0 -> shift_for_zero a <
+go_add0 1 -> next_mul b >
+go_add0 a -> go_add0 a <
+go_add0 b -> go_add0 b <
+go_add0 _ -> next_mul a >
+
+go_add1 0 -> next_mul b >
+go_add1 1 -> shift_inc a <
+go_add1 a -> go_add1 a <
+go_add1 b -> go_add1 b <
+go_add1 _ -> next_mul b >
+
+shift_for_zero _ -> next_mul 0 >
+shift_for_zero 0 -> next_mul 0 >
+shift_for_zero 1 -> next_mul 1 >
+
+shift_inc 0 -> next_mul 1 >
+shift_inc 1 -> shift_inc 0 <
+shift_inc _ -> next_mul 1 >
+
+next_mul x -> st_mul x < 
+next_mul y -> st_mul y <
+next_mul 0 -> next_mul 0 >
+next_mul 1 -> next_mul 1 >
+next_mul = -> next_mul = >
+next_mul a -> next_mul a >
+next_mul b -> next_mul b >
+
+next_iter a -> next_iter a <
+next_iter b -> next_iter b <
+next_iter 0 -> next_iter a <
+next_iter 1 -> next_iter b <
+next_iter _ -> show_hidden _ >
+
+show_hidden = -> show_hidden = >
+show_hidden a -> show_hidden 0 >
+show_hidden b -> show_hidden 1 >
+show_hidden x -> show_hidden 0 >
+show_hidden y -> show_hidden 1 >
+show_hidden * -> go_end * >

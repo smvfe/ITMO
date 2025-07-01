@@ -1,0 +1,5 @@
+if(EXISTS "C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/runUnitTests[1]_tests.cmake")
+  include("C:/coding/cpp_itmo/b1-percolation-smvfe/cmake-build-debug-mingw/libraries/Percolation/runUnitTests[1]_tests.cmake")
+else()
+  add_test(runUnitTests_NOT_BUILT runUnitTests_NOT_BUILT)
+endif()
