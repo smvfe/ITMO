@@ -1,0 +1,44 @@
+import org.jetbrains.lincheck.datastructures.*
+import org.junit.*
+
+@Param(name = "key", gen = IntGen::class, conf = "1:8")
+@Param(name = "value", gen = IntGen::class, conf = "1:10")
+class IntIntHashMapTest {
+    private val map = IntIntHashMap()
+
+    @Operation
+    fun put(@Param(name = "key") key: Int, @Param(name = "value") value: Int): Int = map.put(key, value)
+
+    @Operation
+    fun remove(@Param(name = "key") key: Int): Int = map.remove(key)
+
+    @Operation
+    fun get(@Param(name = "key") key: Int): Int = map.get(key)
+
+    @Test
+    fun modelCheckingTest() = ModelCheckingOptions()
+        .iterations(100)
+        .invocationsPerIteration(10_000)
+        .threads(3)
+        .actorsPerThread(3)
+        .checkObstructionFreedom()
+        .sequentialSpecification(IntIntHashMapSequential::class.java)
+        .check(this::class.java)
+
+    @Test
+    fun stressTest() = StressOptions()
+        .iterations(100)
+        .invocationsPerIteration(50_000)
+        .threads(3)
+        .actorsPerThread(3)
+        .sequentialSpecification(IntIntHashMapSequential::class.java)
+        .check(this::class.java)
+}
+
+class IntIntHashMapSequential {
+    private val map = HashMap<Int, Int>()
+
+    fun put(key: Int, value: Int): Int = map.put(key, value) ?: 0
+    fun remove(key: Int): Int = map.remove(key) ?: 0
+    fun get(key: Int): Int = map.get(key) ?: 0
+}

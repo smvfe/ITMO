@@ -1,0 +1,71 @@
+# This is your solution file.
+# Analyze each history and replace <type> with the appropriate register type.
+# Run `./gradlew build` to check your assignment.
+# See README.md for details.
+
+ITMO-MPP/register-type-smvfe # Your repository (DO NOT EDIT)
+
+# History 1
+linearizable # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ---------------[    R:0   ]--------[  W(1)  ]-----
+Q: -------[    W(1)   ]---------[  R:0  ]------------
+R: -------------[ W(0) ]------[     R:1    ]---------
+
+# History 2
+unsafe # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ------[   R:0  ]---[     R:0     ]----------------
+Q: -----------------------[  R:2 ]----[  W(2) ]------
+R: -----------[       R:0      ]-------[  W(1)  ]----
+
+# History 3
+regular # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: -----------[    R:1    ]--------------------------
+Q: ---[ W(2) ]---[      R:2     ]--------------------
+R: ---------------[    R:2    ]----------------------
+S: -----[  W(1) ]------------------------------------
+
+# History 4
+unsafe # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: -----------[    R:2    ]--[     W(1)    ]---------
+Q: ---[        R:1       ]---------------------------
+R: ------[         R:0        ]-[      W(2)      ]---
+
+# History 5
+regular # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ---------[ W(1) ]---------------------------------
+Q: -------------[   W(0)   ]--[     R:1    ]---------
+R: --------------------------------[   W(2)   ]------
+S: --------------------[     R:0    ]----------------
+
+# History 6
+safe # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: --------[       R:1      ]-------[   W(1)   ]-----
+Q: ---[          W(2)         ]-[  W(0) ]--[  R:0 ]--
+R: ----------[     R:0    ]--------------------------
+
+# History 7
+linearizable # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ----------------------[     W(2)     ]-[  R:0  ]--
+Q: ------------------[  R:0 ]--[  R:2  ]-------------
+R: -----------------------[   W(0)  ]----------------
+S: ---[    W(0)   ]----------------------------------
+
+# History 8
+regular # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ------------[    R:0   ]---------------[  W(2)  ]-
+Q: -----------[         W(1)        ]-[  W(1) ]------
+R: ----[    R:1   ]-[    R:0   ]---------------------
+
+# History 9
+unsafe # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: --------------[  W(2)  ]--------------------------
+Q: -------------------[ W(0) ]-------------[  R:0 ]--
+R: ----[ W(1) ]--------------------------------------
+S: --[        R:1        ]----------[     R:1    ]---
+
+# History 10
+safe # :TODO: REPLACE WITH ONE OF: linearizable, regular, safe, unsafe
+P: ------------------------------[   R:0  ]-[  R:0 ]-
+Q: -------------[   W(0)  ]--[       R:2      ]------
+R: -----------------[  R:0  ]------------------------
+S: ------------[      W(1)      ]--------------------

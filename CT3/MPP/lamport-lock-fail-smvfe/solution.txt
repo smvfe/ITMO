@@ -1,0 +1,12 @@
+Мочеков Семён
+
+# format: <thread> <line> <action> <location> <value>
+# e.g. thread P (id = 0) entering critical section is shown below
+# todo: write the actual solution below
+
+P 3 R a[1] 0
+Q 3 R a[0] 0
+Q 4 W a[1] 1
+Q 7 R a[0] 0
+P 4 W a[0] 1
+P 7 R a[1] 1
