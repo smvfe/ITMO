@@ -1,6 +1,5 @@
 # Computer science
 
-[![Languages](https://img.shields.io/github/languages/top/smvfe/ITMO)](https://github.com/smvfe/ITMO)
 [![Repo Size](https://img.shields.io/github/repo-size/smvfe/ITMO)](https://github.com/smvfe/ITMO)
 
 > *Projects, research, and laboratory works completed during my studies at ITMO University.*
